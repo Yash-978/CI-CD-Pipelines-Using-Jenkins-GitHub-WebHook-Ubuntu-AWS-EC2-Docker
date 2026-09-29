@@ -18,11 +18,11 @@ pipeline{
 
         stage('Build Docker Image'){
             step{
-                sh 'docker build -t $IMAGE_NAME'
+                sh 'docker build -t $IMAGE_NAME .'
             }
         }
         
-        stage('Stop $ Remove Previous Container'){
+        stage('Stop & Remove Previous Container'){
             step{
                 sh '''
                     docker stop $CONTAINER_NAME || true
