@@ -19,8 +19,11 @@ pipeline{
         stage('Build Docker Image'){
             step{
                 sh 'docker build -t $IMAGE_NAME .'
+                // rememember this . last .
             }
         }
+
+        
         
         stage('Stop & Remove Previous Container'){
             step{
@@ -47,6 +50,7 @@ pipeline{
                     
                     body: "Your NestJs app is Deployed! http://16.171.254.196:${PORT}",
                     to: "${EMAIL}"
+                    // remember this these comas , after the subject body and to
 
 
                 )
